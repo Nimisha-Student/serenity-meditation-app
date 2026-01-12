@@ -16,9 +16,6 @@ const COUNT_NOTES = {
   4: 783.99,  // G5
 }
 
-// Ambient sound URL
-const AMBIENT_URL = 'https://www.soundjay.com/nature/sounds/waterfall-1.mp3'
-
 export function BreathingGuide({ isActive }) {
   const [phase, setPhase] = useState(0)
   const [count, setCount] = useState(0)
@@ -27,19 +24,10 @@ export function BreathingGuide({ isActive }) {
   const audioContextRef = useRef(null)
   const countIntervalRef = useRef(null)
   const timeoutsRef = useRef([])
-  const ambientAudioRef = useRef(null)
 
-  // Initialize audio context and ambient audio
+  // Cleanup audio context on unmount
   useEffect(() => {
-    ambientAudioRef.current = new Audio(AMBIENT_URL)
-    ambientAudioRef.current.loop = true
-    ambientAudioRef.current.volume = 0.15
-
     return () => {
-      if (ambientAudioRef.current) {
-        ambientAudioRef.current.pause()
-        ambientAudioRef.current = null
-      }
       if (audioContextRef.current) {
         audioContextRef.current.close()
       }
@@ -120,42 +108,6 @@ export function BreathingGuide({ isActive }) {
     playSingingBowl(note, 800, 0.15)
   }, [playSingingBowl])
 
-  // Control ambient music
-  useEffect(() => {
-    if (!ambientAudioRef.current) return
-
-    if (isActive && soundEnabled && !isPaused) {
-      ambientAudioRef.current.volume = 0
-      ambientAudioRef.current.play().catch(() => {})
-
-      let vol = 0
-      const fadeIn = setInterval(() => {
-        vol += 0.01
-        if (vol >= 0.15) {
-          clearInterval(fadeIn)
-          vol = 0.15
-        }
-        if (ambientAudioRef.current) {
-          ambientAudioRef.current.volume = vol
-        }
-      }, 50)
-    } else {
-      if (ambientAudioRef.current.volume > 0) {
-        let vol = ambientAudioRef.current.volume
-        const fadeOut = setInterval(() => {
-          vol -= 0.01
-          if (vol <= 0) {
-            clearInterval(fadeOut)
-            ambientAudioRef.current?.pause()
-          }
-          if (ambientAudioRef.current) {
-            ambientAudioRef.current.volume = Math.max(0, vol)
-          }
-        }, 50)
-      }
-    }
-  }, [isActive, soundEnabled, isPaused])
-
   const clearAllTimeouts = useCallback(() => {
     timeoutsRef.current.forEach(t => clearTimeout(t))
     timeoutsRef.current = []
@@ -229,9 +181,6 @@ export function BreathingGuide({ isActive }) {
   useEffect(() => {
     return () => {
       stopTimers()
-      if (ambientAudioRef.current) {
-        ambientAudioRef.current.pause()
-      }
     }
   }, [stopTimers])
 
@@ -240,12 +189,6 @@ export function BreathingGuide({ isActive }) {
   const isExhaling = phase === 2
 
   const toggleSound = () => {
-    if (soundEnabled) {
-      if (ambientAudioRef.current) {
-        ambientAudioRef.current.pause()
-        ambientAudioRef.current.volume = 0
-      }
-    }
     setSoundEnabled(prev => !prev)
   }
 
