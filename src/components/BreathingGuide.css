@@ -212,3 +212,127 @@
 .sound-toggle.disabled {
   opacity: 0.6;
 }
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .breathing-guide {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .breathing-container {
+    width: 100px;
+    height: 100px;
+  }
+
+  .breathing-circle {
+    width: 65px;
+    height: 65px;
+  }
+
+  .breath-count {
+    font-size: 1rem;
+  }
+
+  .ring-1 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .ring-2 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .ring-3 {
+    width: 140px;
+    height: 140px;
+  }
+
+  .phase-name {
+    font-size: 0.95rem;
+  }
+
+  .sound-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .breathing-guide {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .breathing-container {
+    width: 85px;
+    height: 85px;
+  }
+
+  .breathing-circle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .breath-count {
+    font-size: 0.9rem;
+  }
+
+  .ring-1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .ring-2 {
+    width: 95px;
+    height: 95px;
+  }
+
+  .ring-3 {
+    width: 120px;
+    height: 120px;
+  }
+
+  .phase-name {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+/* Landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+  .breathing-guide {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .breathing-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .breathing-circle {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ring-1, .ring-2, .ring-3 {
+    display: none;
+  }
+
+  .phase-name {
+    font-size: 0.85rem;
+  }
+
+  .sound-toggle {
+    width: 36px;
+    height: 36px;
+    margin-top: 0.5rem;
+  }
+}

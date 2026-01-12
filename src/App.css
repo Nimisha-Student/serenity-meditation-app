@@ -184,17 +184,89 @@
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
+
+/* Large tablets and small desktops */
+@media (max-width: 768px) {
+  .app {
+    padding: 1.5rem;
+  }
+
+  .app-main {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orb-2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .orb-3 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 600px) {
   .app {
     padding: 1rem;
   }
 
+  .app-header {
+    margin-bottom: 1.5rem;
+  }
+
   .logo h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .tagline {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+  }
+
+  .app-main {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .app {
+    padding: 0.75rem;
+    padding-top: 1rem;
+  }
+
+  .app-header {
+    margin-bottom: 1rem;
+  }
+
+  .logo {
+    gap: 0.5rem;
+  }
+
+  .logo-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .logo h1 {
+    font-size: 1.8rem;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .app-main {
+    gap: 1rem;
   }
 
   .feature-toggle {
@@ -205,13 +277,102 @@
   .feature-btn {
     flex: 1;
     text-align: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .app-footer {
+    padding-top: 1rem;
+  }
+
+  .app-footer p {
+    font-size: 0.75rem;
+  }
+
+  .orb-1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+  }
+
+  .orb-2 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .orb-3 {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .app {
+    padding: 0.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    font-size: 0.7rem;
+  }
+
+  .feature-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
   }
 }
 
 /* PWA Install Banner styles */
 @media (display-mode: standalone) {
   .app {
-    padding-top: env(safe-area-inset-top, 2rem);
-    padding-bottom: env(safe-area-inset-bottom, 2rem);
+    padding-top: env(safe-area-inset-top, 1rem);
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+    padding-left: env(safe-area-inset-left, 1rem);
+    padding-right: env(safe-area-inset-right, 1rem);
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app {
+    padding: 0.5rem 1rem;
+  }
+
+  .app-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  .app-main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .timer-section {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .features-section {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .app-footer {
+    display: none;
   }
 }

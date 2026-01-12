@@ -69,3 +69,42 @@
     transform: translateY(0);
   }
 }
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .progress-circle-container {
+    margin: 1rem 0;
+    transform: scale(0.85);
+  }
+
+  .time-display {
+    font-size: 2.8rem;
+  }
+
+  .complete-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .progress-circle-container {
+    transform: scale(0.75);
+    margin: 0.5rem 0;
+  }
+
+  .time-display {
+    font-size: 2.5rem;
+  }
+}
+
+/* Landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+  .progress-circle-container {
+    transform: scale(0.6);
+    margin: 0;
+  }
+
+  .time-display {
+    font-size: 2.5rem;
+  }
+}
