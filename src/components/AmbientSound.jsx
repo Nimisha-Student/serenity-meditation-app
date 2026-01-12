@@ -6,25 +6,25 @@ const SOUNDS = [
     id: 'rain',
     name: 'Rain',
     icon: '🌧️',
-    url: 'https://cdn.freesound.org/previews/531/531947_6142149-lq.mp3'
+    url: 'https://www.soundjay.com/nature/sounds/rain-01.mp3'
   },
   {
     id: 'forest',
     name: 'Forest',
     icon: '🌲',
-    url: 'https://cdn.freesound.org/previews/462/462087_9159316-lq.mp3'
+    url: 'https://www.soundjay.com/nature/sounds/forest-1.mp3'
   },
   {
     id: 'ocean',
     name: 'Ocean',
     icon: '🌊',
-    url: 'https://cdn.freesound.org/previews/467/467823_9787882-lq.mp3'
+    url: 'https://www.soundjay.com/nature/sounds/ocean-wave-1.mp3'
   },
   {
     id: 'fire',
     name: 'Fire',
     icon: '🔥',
-    url: 'https://cdn.freesound.org/previews/532/532015_2454480-lq.mp3'
+    url: 'https://www.soundjay.com/nature/sounds/fire-1.mp3'
   }
 ]
 

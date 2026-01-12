@@ -57,6 +57,31 @@
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
   opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breath-count {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  animation: countPop 0.3s ease-out;
+}
+
+@keyframes countPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .breathing-rings {
@@ -154,4 +179,36 @@
 .dot.active {
   background: var(--accent-color);
   box-shadow: 0 0 10px var(--glow-color);
+}
+
+.sound-toggle {
+  margin-top: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sound-toggle:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.sound-toggle.enabled {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 2px 10px var(--glow-color);
+}
+
+.sound-toggle.disabled {
+  opacity: 0.6;
 }
