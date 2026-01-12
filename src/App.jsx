@@ -6,11 +6,17 @@ import { TimerControls } from './components/TimerControls'
 import { BreathingGuide } from './components/BreathingGuide'
 import { AmbientSound } from './components/AmbientSound'
 import { ThemeToggle } from './components/ThemeToggle'
+import { SplashScreen } from './components/SplashScreen'
 import './App.css'
 
 function MeditationApp() {
+  const [showSplash, setShowSplash] = useState(true)
   const [showBreathing, setShowBreathing] = useState(true)
   const timer = useTimer(5)
+
+  if (showSplash) {
+    return <SplashScreen onComplete={() => setShowSplash(false)} />
+  }
 
   return (
     <div className="app">

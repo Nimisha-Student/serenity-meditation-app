@@ -1,0 +1,163 @@
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  z-index: 1000;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.splash-screen.fadeIn .splash-content {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: splashFadeIn 1s ease forwards;
+}
+
+.splash-screen.visible .splash-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.splash-screen.fadeOut {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  max-width: 500px;
+  z-index: 1;
+}
+
+.splash-logo {
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  font-weight: 300;
+  color: white;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 50%;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 40px var(--glow-color);
+  animation: logoPulse 3s ease-in-out infinite;
+}
+
+.splash-quote {
+  margin: 0;
+  padding: 0;
+}
+
+.splash-quote p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-weight: 300;
+  font-style: italic;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.02em;
+}
+
+.splash-quote cite {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-style: normal;
+  opacity: 0.8;
+}
+
+/* Background decoration */
+.splash-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.splash-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.splash-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--gradient-start);
+  top: -150px;
+  right: -100px;
+  animation: orbFloat 8s ease-in-out infinite;
+}
+
+.splash-orb-2 {
+  width: 350px;
+  height: 350px;
+  background: var(--gradient-end);
+  bottom: -100px;
+  left: -100px;
+  animation: orbFloat 8s ease-in-out infinite reverse;
+}
+
+/* Animations */
+@keyframes splashFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    box-shadow: 0 10px 40px var(--glow-color);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 15px 60px var(--glow-color);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, 20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .splash-logo {
+    font-size: 4rem;
+    width: 100px;
+    height: 100px;
+  }
+
+  .splash-quote p {
+    font-size: 1.2rem;
+  }
+
+  .splash-content {
+    padding: 1.5rem;
+  }
+}
