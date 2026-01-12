@@ -25,7 +25,6 @@
 
 .logo-icon {
   color: var(--accent-color);
-  animation: float 6s ease-in-out infinite;
 }
 
 .logo h1 {
