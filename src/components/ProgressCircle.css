@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 }
 
 .progress-circle {
@@ -73,8 +73,8 @@
 /* Responsive Design */
 @media (max-width: 480px) {
   .progress-circle-container {
-    margin: 1rem 0;
-    transform: scale(0.85);
+    margin: 0;
+    transform: scale(0.7);
   }
 
   .time-display {
@@ -88,8 +88,8 @@
 
 @media (max-width: 360px) {
   .progress-circle-container {
-    transform: scale(0.75);
-    margin: 0.5rem 0;
+    transform: scale(0.6);
+    margin: 0;
   }
 
   .time-display {
@@ -97,10 +97,24 @@
   }
 }
 
+@media (max-height: 700px) {
+  .progress-circle-container {
+    transform: scale(0.75);
+    margin: 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .progress-circle-container {
+    transform: scale(0.65);
+    margin: 0;
+  }
+}
+
 /* Landscape */
 @media (max-height: 500px) and (orientation: landscape) {
   .progress-circle-container {
-    transform: scale(0.6);
+    transform: scale(0.5);
     margin: 0;
   }
 

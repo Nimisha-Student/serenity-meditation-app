@@ -1,9 +1,9 @@
 .ambient-sound {
   width: 100%;
   max-width: 400px;
-  padding: 1.5rem;
+  padding: 1rem;
   background: var(--surface-color);
-  border-radius: 24px;
+  border-radius: 20px;
   border: 1px solid var(--border-color);
 }
 
